@@ -26,23 +26,10 @@
   ],
   "commands": [
     {
-      "section": "Categories",
-      "name": "ConnectionTest",
-      "action": "Send Test E-Mail",
-      "displayName": "ConnectionTest",
-      "description": ["To check connection parameters click the button."]
-    }
-  ],
-  "sections": [
-    {
-      "name": "Categories",
-      "prefix": "Category",
-      "multi": true
-    },
-    {
-      "name": "Feeds",
-      "prefix": "Feed",
-      "multi": false
+      "name": "Test Env",
+      "action": "print all env vars",
+      "displayName": "envtest",
+      "description": ["To print all env vars click the button"]
     }
   ]
 }
