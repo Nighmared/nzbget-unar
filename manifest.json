@@ -1,35 +1,20 @@
 {
   "main": "main.py",
-  "name": "Unar",
+  "name": "Multi-Rar-Extractor",
   "homepage": "https://github.com/nighmared/nzbget-unar",
   "kind": "POST-PROCESSING",
-  "displayName": "Multi file unar",
+  "displayName": "Multi-Rar-Extractor",
   "version": "1.0",
   "nzbgetMinVersion": "24",
   "author": "nighmared",
   "license": "GNU",
-  "about": "checks if there are multiple, numbered rar files and if so unarchives them",
+  "about": "Extracts multi-RAR file",
   "queueEvents": "NZB_DOWNLOADED",
   "taskTime": "",
   "requirements": [
-    "This script requires Python3.8 and unar to be installed on your system."
+    "This script requires Python3.8 and unrar to be installed on your system."
   ],
   "description": ["will unarchive specific type of multi-rar file"],
-  "options": [
-    {
-      "name": "Dummy Option",
-      "displayName": "Dummy",
-      "value": 2,
-      "description": ["dummy option"],
-      "select": [4, 5]
-    }
-  ],
-  "commands": [
-    {
-      "name": "Test Env",
-      "action": "print all env vars",
-      "displayName": "envtest",
-      "description": ["To print all env vars click the button"]
-    }
-  ]
+  "options": [],
+  "commands": []
 }
