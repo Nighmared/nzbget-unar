@@ -1,0 +1,48 @@
+{
+  "main": "main.py",
+  "name": "Unar",
+  "homepage": "https://github.com/nighmared/nzbget-unar",
+  "kind": "POST-PROCESSING",
+  "displayName": "Multi file unar",
+  "version": "1.0",
+  "nzbgetMinVersion": "24",
+  "author": "nighmared",
+  "license": "GNU",
+  "about": "checks if there are multiple, numbered rar files and if so unarchives them",
+  "queueEvents": "NZB_DOWNLOADED",
+  "taskTime": "",
+  "requirements": [
+    "This script requires Python3.8 and unar to be installed on your system."
+  ],
+  "description": ["will unarchive specific type of multi-rar file"],
+  "options": [
+    {
+      "name": "Dummy Option",
+      "displayName": "Dummy",
+      "value": 2,
+      "description": ["dummy option"],
+      "select": [4, 5]
+    }
+  ],
+  "commands": [
+    {
+      "section": "Categories",
+      "name": "ConnectionTest",
+      "action": "Send Test E-Mail",
+      "displayName": "ConnectionTest",
+      "description": ["To check connection parameters click the button."]
+    }
+  ],
+  "sections": [
+    {
+      "name": "Categories",
+      "prefix": "Category",
+      "multi": true
+    },
+    {
+      "name": "Feeds",
+      "prefix": "Feed",
+      "multi": false
+    }
+  ]
+}
