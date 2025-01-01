@@ -14,7 +14,9 @@
   "requirements": [
     "This script requires Python3.8 and unrar to be installed on your system."
   ],
-  "description": ["will unarchive specific type of multi-rar file"],
+  "description": [
+    "Looks for multiple rar files with extensions like: .r00, .r01, .r02, ...\n and if these are found unarchives them together to get to the actual file "
+  ],
   "options": [],
   "commands": []
 }
