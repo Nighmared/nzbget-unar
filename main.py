@@ -41,7 +41,7 @@ def main():
             listing = os.listdir(parsed_path)
 
     if len(listing) < 5:
-        iprint("Skipping, does not need unar")
+        iprint("Skipping, does not need additional extraction")
         sys.exit(POSTPROCESS_NONE)
 
     num_to_part_rar_paths: dict[int, str] = {}
@@ -54,7 +54,7 @@ def main():
             num_to_part_rar_paths[key] = val
 
     a = sorted(num_to_part_rar_paths.items(), key=lambda x: x[0])
-    cmd = f"unrar x {a[0][1]} {parsed_path}"
+    cmd = f"unrar x -y {a[0][1]} {parsed_path}"
     retc = subprocess.call(cmd, shell=True)
     if retc != 0:
         eprint(f"Unrar exited with code {retc}")
