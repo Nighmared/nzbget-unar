@@ -45,10 +45,12 @@ def main():
         sys.exit(POSTPROCESS_NONE)
 
     num_to_part_rar_paths: dict[int, str] = {}
+    path_list = []
     for f in os.listdir(parsed_path):
         if f[-3] == "r" and (num := f[-2:]).isdigit():
             key = int(num)
             val = os.path.join(parsed_path, f)
+            path_list.append(val)
             num_to_part_rar_paths[key] = val
 
     a = sorted(num_to_part_rar_paths.items(), key=lambda x: x[0])
@@ -58,6 +60,12 @@ def main():
         eprint(f"Unrar exited with code {retc}")
         sys.exit(POSTPROCESS_ERROR)
     iprint("Successfully extracted from multi-archive")
+    rm_cmd = "rm " + (" ".join(path_list))
+    retc = subprocess.call(rm_cmd, shell=True)
+    if retc != 0:
+        eprint(f"Cleanup exited with code {retc}")
+        sys.exit(POSTPROCESS_ERROR)
+    iprint("Successfully deleted partial RARs")
     sys.exit(POSTPROCESS_SUCCESS)
 
 
