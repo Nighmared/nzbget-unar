@@ -33,7 +33,11 @@ def main():
         sys.exit(POSTPROCESS_NONE)
 
     parsed_path = os.path.normpath(dest_dir)
-    listing = os.listdir(parsed_path)
+    try:
+	    listing = os.listdir(parsed_path)
+	except FileNotFoundError:
+		iprint(f"Didn't find directory {parsed_path} Skipping")
+		sys.exit(POSTPROCESS_NONE)
     if len(listing) == 1:
         new_path = os.path.join(parsed_path, listing[0])
         if os.path.isdir(new_path):
@@ -54,6 +58,9 @@ def main():
             num_to_part_rar_paths[key] = val
 
     a = sorted(num_to_part_rar_paths.items(), key=lambda x: x[0])
+    if len(a) == 0:
+    	iprint("Did not find any matching rar files. Skipping")
+    	sys.exit(POSTPROCESS_NONE)
     cmd = f"unrar x -y {a[0][1]} {parsed_path}"
     retc = subprocess.call(cmd, shell=True)
     if retc != 0:
